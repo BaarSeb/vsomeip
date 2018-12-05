@@ -6,3 +6,4 @@ env:
 
 script:
   - "bash -ex make_pakage.sh"
+  
