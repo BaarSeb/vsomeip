@@ -7,6 +7,7 @@ install:
   - export PROJECT_DIR=$PWD
   - sudo apt-get update -qq
   - sudo apt-get install -qq tree
+  - sudo apt-get install -y libboost-all-dev 
   - cd $HOME
   - git clone https://github.com/raspberrypi/tools rpi-tools
   - export PATH=$PATH:$HOME/rpi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin
@@ -19,7 +20,7 @@ install:
 script:
   - mkdir build
   - cd build 
-  - cmake ..
+  - cmake -DCMAKE_CXX_COMPILER=$CCPREFIX$CC ..
   - make 
   - make install
   
