@@ -5,5 +5,7 @@ env:
   - ARCH=arm
 
 script:
+  - pwd
+  - ls
   - "bash -ex make_pakage.sh"
   
