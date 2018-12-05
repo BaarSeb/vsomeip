@@ -20,7 +20,7 @@ install:
 script:
   - mkdir build
   - cd build 
-  - cmake -DCMAKE_CXX_COMPILER=$CCPREFIX$CC ..
+  - cmake -DCMAKE_CXX_COMPILER=$CCPREFIX/$CC ..
   - make 
   - make install
   
