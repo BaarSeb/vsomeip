@@ -14,7 +14,7 @@ install:
   - echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ xenial-updates main multiverse restricted universe" >> /etc/apt/sources.list
   - echo "deb [arch=amd64] http://security.ubuntu.com/ubuntu/ xenial-security main multiverse restricted universe" >> /etc/apt/sources.list
   - sudo apt-get update 
-  - sudo apt-get install -y libboost-system-dev:armhf libboost-thread-dev:armhf libboost-log-dev:armhf
+  - sudo apt-get install -y libboost-system-dev:armhf libboost-thread-dev:armhf libboost-log-dev:armhf libasio-dev:armhf
 # clone the rpi tools
   - cd $HOME
   - git clone https://github.com/raspberrypi/tools rpi-tools
