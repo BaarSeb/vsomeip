@@ -3,10 +3,13 @@ language: cpp
 dist: xenial
   
 install:
+  - sudo dpkg --add-architecture armhf
+  - echo "deb [arch=armel] http://ports.ubuntu.com/ubuntu-ports xenial main universe" >> /etc/apt/sources.list
   - sudo apt-get install -y libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi libncurses5-dev
   - export PROJECT_DIR=$PWD
   - sudo apt-get update -qq
   - sudo apt-get install -qq tree
+  - sudo apt-get install -y libboost-all-dev:armhf
   - sudo apt-get install -y libboost-all-dev 
   - cd $HOME
   - git clone https://github.com/raspberrypi/tools rpi-tools
