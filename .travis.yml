@@ -3,9 +3,9 @@ language: cpp
 dist: xenial
   
 install:
+# set up the cross compiling environment
   - sudo apt-get update 
   - sudo apt-get install -y libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi libncurses5-dev binutils-multiarch
-  - export PROJECT_DIR=$PWD
   - sudo dpkg --add-architecture armhf
   - echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ xenial main multiverse restricted universe" > /etc/apt/sources.list
   - echo "deb [arch=armhf] http://ports.ubuntu.com/ubuntu-ports/ xenial main multiverse restricted universe" >> /etc/apt/sources.list
@@ -14,21 +14,23 @@ install:
   - echo "deb [arch=amd64] http://security.ubuntu.com/ubuntu/ xenial-security main multiverse restricted universe" >> /etc/apt/sources.list
   - sudo apt-get update 
   - sudo apt-get install -y libboost-system-dev:armhf libboost-thread-dev:armhf libboost-log-dev:armhf
-#  - sudo apt-get install -y libboost-all-dev 
+# clone the rpi tools
   - cd $HOME
   - git clone https://github.com/raspberrypi/tools rpi-tools
+# export environment variables
   - export PATH=$PATH:$HOME/rpi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin
+  - export CXX=arm-linux-gnueabihf-g++
   - export ARCH=arm
   - export CCPREFIX=$HOME/rpi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-
   - export CC=arm-linux-gnueabihf-gcc
   - export RPI_CROSS_COMPILE=true
+  - export PROJECT_DIR=$PWD
   - cd $PROJECT_DIR
-  - export CXX=arm-linux-gnueabihf-g++
-  
+
 script:
-  - wget -O 0001-Support-boost-v1.66.patch.zip https://github.com/GENIVI/vsomeip/files/2244890/0001-Support-boost-v1.66.patch.zip
-  - unzip 0001-Support-boost-v1.66.patch.zip
-  - git apply 0001-Support-boost-v1.66.patch
+#  - wget -O 0001-Support-boost-v1.66.patch.zip https://github.com/GENIVI/vsomeip/files/2244890/0001-Support-boost-v1.66.patch.zip
+#  - unzip 0001-Support-boost-v1.66.patch.zip
+#  - git apply 0001-Support-boost-v1.66.patch
   - mkdir build
   - cd build 
   - cmake -DENABLE_SIGNAL_HANDLING=1 ..
