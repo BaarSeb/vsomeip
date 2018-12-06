@@ -5,7 +5,7 @@ dist: xenial
 install:
   - sudo dpkg --add-architecture armhf
   - cat /etc/apt/sources.list
-  - echo "deb [arch=armhf] http://ports.ubuntu.com/ xenial main universe" >> /etc/apt/sources.list
+  - echo "deb [arch=armhf] http://ports.ubuntu.com/ xenial main universe" > /etc/apt/sources.list
   - cat /etc/apt/sources.list 
   - sudo apt-get install -y libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi libncurses5-dev
   - export PROJECT_DIR=$PWD
