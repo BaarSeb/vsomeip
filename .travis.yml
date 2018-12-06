@@ -27,6 +27,7 @@ install:
   - export RPI_CROSS_COMPILE=true
   - cd $PROJECT_DIR
 
+
 script:
 #  - wget -O 0001-Support-boost-v1.66.patch.zip https://github.com/GENIVI/vsomeip/files/2244890/0001-Support-boost-v1.66.patch.zip
 #  - unzip 0001-Support-boost-v1.66.patch.zip
