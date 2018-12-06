@@ -20,9 +20,12 @@ install:
   - export CXX=arm-linux-gnueabihf-g++
   
 script:
+  - wget -O 0001-Support-boost-v1.66.patch.zip https://github.com/GENIVI/vsomeip/files/2244890/0001-Support-boost-v1.66.patch.zip
+  - unzip 0001-Support-boost-v1.66.patch.zip
+  - git apply 0001-Support-boost-v1.66.patch
   - mkdir build
   - cd build 
-  - cmake ..
+  - cmake -DENABLE_SIGNAL_HANDLING=1 ..
   - make 
   - make install
   
