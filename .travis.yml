@@ -3,6 +3,7 @@ language: cpp
 dist: xenial
   
 install:
+  - export PROJECT_DIR=$PWD
 # set up the cross compiling environment
   - sudo apt-get update 
   - sudo apt-get install -y libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi libncurses5-dev binutils-multiarch
@@ -24,7 +25,6 @@ install:
   - export CCPREFIX=$HOME/rpi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-
   - export CC=arm-linux-gnueabihf-gcc
   - export RPI_CROSS_COMPILE=true
-  - export PROJECT_DIR=$PWD
   - cd $PROJECT_DIR
 
 script:
