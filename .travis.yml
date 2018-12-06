@@ -10,8 +10,10 @@ install:
   - sudo dpkg --add-architecture armhf
   - cat /etc/apt/sources.list
   - echo "deb [arch=armhf] http://ports.ubuntu.com/ xenial main universe" > /etc/apt/sources.list
+  - echo "deb [arch=armhf] http://ports.ubuntu.com/ xenial main universe" > /etc/apt/sources.list
   - cat /etc/apt/sources.list 
   - sudo apt-get update -qq
+  - sudo apt-get autoclean $$ apt-get clear cache
   - sudo apt-get install -y libboost-dev:armhf
   - sudo apt-get install -y libboost-all-dev:armhf
 #  - sudo apt-get install -y libboost-all-dev 
