@@ -4,10 +4,10 @@ dist: xenial
   
 install:
   - sudo apt-get update 
-  - sudo apt-get install -y libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi libncurses5-dev
+  - sudo apt-get install -y libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi libncurses5-dev binutils-multiarch
   - export PROJECT_DIR=$PWD
   - sudo dpkg --add-architecture armhf
-  - echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ xenial main multiverse restricted universe" >> /etc/apt/sources.list
+  - echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ xenial main multiverse restricted universe" > /etc/apt/sources.list
   - echo "deb [arch=armhf] http://ports.ubuntu.com/ubuntu-ports/ xenial main multiverse restricted universe" >> /etc/apt/sources.list
   - echo "deb [arch=armhf] http://ports.ubuntu.com/ubuntu-ports/ xenial-updates main multiverse restricted universe" >> /etc/apt/sources.list
   - echo "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ xenial-updates main multiverse restricted universe" >> /etc/apt/sources.list
