@@ -1,7 +1,6 @@
 language: cpp
 
-os: 
-  - linux
+dist: xenial
   
 install:
   - sudo apt-get install -y libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi libncurses5-dev
